@@ -1,0 +1,72 @@
+---
+title: ""
+format:
+  PrettyPDF-pdf:
+    keep-tex: true
+  docx: default
+---
+
+# Lewis Hounkpevi \| Senior Data Scientist \| ML Engineer
+
+\begin{center}Forte expertise en AI/ML, Python, R, AWS Cloud\end{center}
+
+**Ville :** xxxxxxxxxx \| **Tél :** +33 x xx xx xx xx \| **Email :** [dumesnil.hounkpevi\@gmail.com](mailto:dumesnil.hounkpevi@gmail.com) \
+**LinkedIn :** <https://www.linkedin.com/in/lewishounkpevi> \| **Github :** <https://github.com/lewishounkpevi>
+
+
+
+<!-- ## Résumé -->
+
+<!-- Senior Data Scientist expérimenté avec une expertise en machine learning, analyse de données et outils tels que Python, R et AWS. Possède une solide expérience en leadership et en formation d'équipes, avec des contributions significatives dans divers secteurs. Diplômé en ingénierie statistique, reconnu pour ses compétences en modélisation, segmentation et réduction du churn. -->
+
+## Compétences
+
+-   **Environnement Technique :** Expert en R et Python, SQL, Git, Gitlab, AWS Sagemaker, S3, Redshift, Docker, PowerBI
+-   **Machine Learning et MLOps:**
+    -   Pipeline : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan, Deep Learning
+    -   Mise en production et Monitoring : MLflow, FastApi, Flask, CI/CD, AWS SageMaker, AWS CodeBuild
+-   **Analyse de données :** Détection anomalies, modélisation et scoring, segmentation, évaluation de risques ou d’appétence
+-   **Soft skills :** Mise en place de la stratégie Data, Leadership, Communication, Pédagogie
+-   **Langues :** Anglais : Courant
+
+## Expérience Professionnelle
+
+*Juil 2022 – En cours* : **Senior Data Scientist – Santevet – Full remote**
+
+Ma mission est de conduire toutes les études et analyses relatives au churn et d’aider les différents corps de métier (Actuariat, Finance, Marketing et Commerce) dans leur contribution à réduite le churn tout en étant Lead technique d’une équipe de 3 collaborateurs.
+
+**Réalisations Clés :**
+
+-   Réduction du churn de 10% en utilisant des modèles de scoring.
+-   Mise en production et monitoring de 5 modèles de prédiction sous Python et AWS SageMaker, S3 et Redshift
+-   Segmentations et profilages du portefeuille client ayant conduit à la mise en place de plans d'actions de rétention et de fidélisation des clients
+-   Amélioration de l’efficacité de l’équipe de 20% en automatisant les processus d’analyse.
+
+*Sept 2019 – Juin 2022* : **Senior Data Scientist à la Direction des Etudes et Analyses – Unédic – Paris**
+
+Mission principale : Accompagnement technique et montée en compétence de l'équipe de l'Unédic sur les nouveaux outils d'analyse de données, en apportant mon expertise dans les études et travaux d'analyse.
+
+**Réalisations Clés :**
+
+-   Publication de 5 articles techniques sur l'analyse des demandeurs d’emploi.
+-   Formation de plus de 10 collaborateurs sur les outils modernes de data science R, Python, Spark et Git.
+
+*Fév 2018 – Août 2019* : **Lead Data Scientist à la Direction Marketing – Eni Gas & Power – Levallois**
+
+Mission principale : Responsable de l'analyse statistique, modélisation et suivi des KPI pour les segments B2C et B2B
+
+**Réalisations Clés :**
+
+-   Mise en production de scores de churn, de cross-sell et d'appétence aux services pour les offres, contribuant à réduire le churn de 10% et augmenter le cross-sell de 15%.
+-   Détection des différents profils des clients en portefeuille.
+-   Développement de 3 packages R augmentant la productivité de 25%.
+
+*Mai 2014 – Jan 2018* : **Responsable technique Data Scientist - Consulting pour Renault (Altran, Ligeron) – Paris**
+
+-   4 ans d’expérience en data science, avec une expertise en ML, utilisant R, Python et SQL, Git.
+-   Compétences en automatisation de rapports d'analyse et en visualisation de données avec un souci de clarté, pédagogie et précision dans l'analyse de données.
+
+## Formation
+
+-   **Specialization in Building Cloud Computing Solutions at Scale** - Duke University - USA (Coursera) - 2024
+-   **Master 2 en Ingénierie Statistique** - Université de Cergy-Pontoise - France - 2014

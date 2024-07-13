@@ -1,0 +1,90 @@
+---
+title: " "
+format:
+  PrettyPDF-pdf:
+    keep-tex: true
+editor: visual
+geometry: "left=1cm,right=1cm,top=1cm,bottom=1cm"
+---
+
+# Lewis HOUNKPEVI
+
+**Ville :** XXXXXXX\
+**Téléphone :** XXXXXXXX\
+**Email :** [dumesnil.hounkpevi\@gmail.com](mailto:dumesnil.hounkpevi@gmail.com)\
+**LinkedIn :** <https://www.linkedin.com/in/lewishounkpevi>
+
+------------------------------------------------------------------------
+
+## Résumé
+
+Senior Data Scientist expérimenté avec une expertise en machine learning, analyse de données et outils tels que Python, R et AWS. Possède une solide expérience en leadership et en formation d'équipes, avec des contributions significatives dans divers secteurs. Diplômé en ingénierie statistique, reconnu pour ses compétences en modélisation, segmentation et réduction du churn.
+
+------------------------------------------------------------------------
+
+## Compétences
+
+-   **Langues :**
+    -   Anglais : Courant
+-   **Environnement Technique :**
+    -   Expert en R, Python, SQL, Git, AWS Sagemaker, S3, Redshift, Docker, PowerBI
+-   **Analyse de données :**
+    -   ACP, ACM, AFC, régressions, détection anomalies, modélisation et scoring, segmentation, classification, évaluation de risques ou d’appétence
+-   **Machine Learning et MLOps:**
+    -   Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan, Deep Learning
+    -   MLflow, FastApi, Flask, CI/CD
+
+------------------------------------------------------------------------
+
+## Expérience Professionnelle
+
+**Senior Data Scientist – Santevet – Full remote**\
+*Juil 2022 – En cours*\
+- Centralisation des analyses relatives au churn. - Aide aux différents corps de métier (Actuariat, Finance, Marketing et Commerce) pour réduire le churn. - Segmentations du portefeuille, score de churn sous Python et AWS SageMaker, S3. - Lead technique d’une équipe de 3 collaborateurs.
+
+**Réalisations Clés :** - Réduction du churn de 10% en utilisant des modèles de scoring sous Python. - Amélioration de l’efficacité de l’équipe de 20% en automatisant les processus d’analyse.
+
+------------------------------------------------------------------------
+
+**Senior Data Scientist à la Direction des Etudes et Analyses – Unédic – Paris**\
+*Sept 2019 – Juin 2022*\
+- Accompagnement technique et montée en compétence de l'équipe de l'Unédic sur les nouveaux outils d'analyse de données. - Formation et accompagnement technique sur R, Python, Spark (Sparklyr et Pyspark) et Git. - Publication de plusieurs articles sur la typologie des demandeurs d’emploi et membre de l’équipe dédiée aux travaux sur l'Activité Partielle dans le cadre de la crise sanitaire du Covid.
+
+**Réalisations Clés :** - Publication de 5 articles techniques sur l'analyse des demandeurs d’emploi. - Formation de plus de 50 collaborateurs sur les outils modernes de data science.
+
+------------------------------------------------------------------------
+
+**Lead Data Scientist à la Direction Marketing – Eni Gas & Power – Levallois**\
+*Fév 2018 – Août 2019*\
+- Responsable de l'analyse statistique, modélisation et suivi des KPI pour les segments B2C et B2B chez Eni. - Développement de scores de churn, de cross-sell et d'appétence aux services pour les offres, contribuant à réduire le churn de 10% et augmenter le cross-sell de 15%. - Détection des différents profils des clients en portefeuille via une segmentation. - Création de packages R pour améliorer la productivité et la reproduction des analyses et études. - Lead technique d’une équipe de 3 personnes.
+
+**Réalisations Clés :** - Réduction du churn de 10% et augmentation du cross-sell de 15%. - Développement de 3 packages R augmentant la productivité de 25%.
+
+------------------------------------------------------------------------
+
+**Responsable technique Data Scientist - Consulting pour Renault (Altran, Ligeron) – Paris**\
+*Mai 2014 – Jan 2018*\
+- 4 ans d’expérience en data science, avec une expertise en ML, utilisant R, Python et SQL, Git. - Expertise en analyse de données, segmentation et scoring des clients. - Compétences en automatisation de rapports d'analyse et en visualisation de données avec un souci de clarté, pédagogie et précision dans l'analyse de données.
+
+**Réalisations Clés :** - Implémentation de solutions ML réduisant les coûts d'analyse de 30%. - Automatisation de rapports réduisant le temps de génération de 40%.
+
+------------------------------------------------------------------------
+
+## Formation
+
+-   **Specialization in Building Cloud Computing Solutions at Scale** - Coursera - 2024
+-   **Master 2 en Ingénierie Statistique** - Université de Cergy-Pontoise - France - 2014
+
+------------------------------------------------------------------------
+
+## Projets Personnels et Contributions Open Source
+
+-   **Kaggle Competitions :** Participation à plusieurs compétitions avec des résultats notables.
+-   **GitHub Contributions :** Développement et partage de plusieurs packages et scripts utiles à la communauté data science.
+
+------------------------------------------------------------------------
+
+## Publications et Conférences
+
+-   **Publications :** 5 articles techniques sur l'analyse des demandeurs d’emploi.
+-   **Conférences :** Présentations lors de conférences telles que Data Science Paris et PyCon.
