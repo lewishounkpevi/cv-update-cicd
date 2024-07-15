@@ -77,12 +77,11 @@ jobs:
               from = Sys.getenv('SMTP_USERNAME'),
               to = Sys.getenv('RECIPIENT_EMAIL'),
               subject = 'CV Update',
-              credentials = creds(
-                user = Sys.getenv('SMTP_USERNAME'),
-                pass = Sys.getenv('SMTP_PASSWORD'),
-                host = Sys.getenv('SMTP_SERVER'),
-                port = as.integer(Sys.getenv('SMTP_PORT')),
-                use_ssl = TRUE
-              )
+              credentials = creds_envvar(
+              user = Sys.getenv('SMTP_USERNAME'),
+              pass_envvar = Sys.getenv('SMTP_PASSWORD'),
+              host = Sys.getenv('SMTP_SERVER'),
+              port = as.integer(Sys.getenv('SMTP_PORT')),
+              use_ssl = TRUE) 
             )
         "
