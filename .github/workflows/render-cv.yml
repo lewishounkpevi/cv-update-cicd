@@ -44,4 +44,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: cv-pdf
-        path: cv.pdf
+        path: fr_cv_updated_LHO.pdf
