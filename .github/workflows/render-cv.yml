@@ -58,6 +58,19 @@ jobs:
         name: cv-pdf
         path: fr_cv_updated_LHO.pdf
         
+    - name: Send Email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ secrets.SMTP_SERVER }}
+        server_port: ${{ secrets.SMTP_PORT }}
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "CV Update"
+        body: "Please find attached the latest version of my CV."
+        to: ${{ secrets.RECIPIENT_EMAIL }}
+        from: ${{ secrets.SMTP_USERNAME }}
+        attachments: fr_cv_updated_LHO.pdf
+        
     - name: Send Email with Blastula
       env:
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
@@ -74,10 +87,10 @@ jobs:
           email <- add_attachment(email, file = 'fr_cv_updated_LHO.pdf')
           
           creds <- creds_envvar(
-            user = 'SMTP_USERNAME',
+            user = Sys.getenv('SMTP_USERNAME'),
             pass = 'SMTP_PASSWORD',
-            host = 'SMTP_SERVER',
-            port = 'SMTP_PORT',
+            host = Sys.getenv('SMTP_SERVER'),
+            port = Sys.getenv('SMTP_PORT'),
             use_ssl = TRUE
             )
             
