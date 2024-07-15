@@ -33,6 +33,7 @@ jobs:
 
     - name: Install R dependencies
       run: |
+        R -e "install.packages(c('curl', 'httr'))"
         R -e "install.packages('quarto')"
         R -e "install.packages('rmarkdown')"
         R -e "install.packages('blastula')"
