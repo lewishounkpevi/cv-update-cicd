@@ -6,11 +6,15 @@ format:
   docx: default
 ---
 
+```{r include=FALSE}
+Sys.Date()
+```
+
 # Lewis Hounkpevi \| Senior Data Scientist \| AI/ML Engineer
 
 \begin{center}Forte expertise en AI/ML, Python, R, AWS Cloud\end{center}
 
-**Ville :** xxxxxxxxxx \| **Tél :** +33 x xx xx xx xx \| **Email :** [dumesnil.hounkpevi\@gmail.com](mailto:dumesnil.hounkpevi@gmail.com) \
+**Ville :**  `r Sys.getenv("VILLE")` \| **Tél :** `r Sys.getenv("TEL")` \| **Email :** [dumesnil.hounkpevi\@gmail.com](mailto:dumesnil.hounkpevi@gmail.com) \
 **LinkedIn :** <https://www.linkedin.com/in/lewishounkpevi> \| **Github :** <https://github.com/lewishounkpevi>
 
 
