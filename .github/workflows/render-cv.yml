@@ -35,6 +35,7 @@ jobs:
       run: |
         R -e "install.packages('quarto')"
         R -e "install.packages('rmarkdown')"
+        R -e "install.packages('blastula')"
         
     - name: Render CV
       run: |
@@ -50,3 +51,37 @@ jobs:
       with:
         name: cv-pdf
         path: fr_cv_updated_LHO.pdf
+        
+    - name: Send Email with Blastula
+      env:
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+      run: |
+        Rscript -e "
+          library(blastula)
+          email <- compose_email(
+            body = md('Please find attached the latest version of my CV.')
+          )
+          smtp <- smtp_server(
+            host = Sys.getenv('SMTP_SERVER'),
+            port = as.integer(Sys.getenv('SMTP_PORT')),
+            username = Sys.getenv('SMTP_USERNAME'),
+            password = Sys.getenv('SMTP_PASSWORD')
+          )
+          email %>%
+            add_attachment(file = 'fr_cv_updated_LHO.pdf') %>%
+            smtp_send(
+              from = Sys.getenv('SMTP_USERNAME'),
+              to = Sys.getenv('RECIPIENT_EMAIL'),
+              subject = 'CV Update',
+              credentials = creds_envvar(
+                user = Sys.getenv('SMTP_USERNAME'),
+                pass = Sys.getenv('SMTP_PASSWORD'),
+                host = Sys.getenv('SMTP_SERVER'),
+                port = as.integer(Sys.getenv('SMTP_PORT'))
+              )
+            )
+        "
