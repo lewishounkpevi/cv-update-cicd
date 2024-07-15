@@ -23,8 +23,8 @@ jobs:
 
     - name: Install Quarto
       run: |
-        wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.0/quarto-1.2.0-linux-amd64.deb
-        sudo dpkg -i quarto-1.2.0-linux-amd64.deb
+        wget -O quarto-linux-amd64.deb https://quarto.org/download/latest/quarto-linux-amd64.deb
+        sudo dpkg -i quarto-linux-amd64.deb
 
     - name: Install R dependencies
       run: |
