@@ -33,7 +33,7 @@ jobs:
 
     - name: Render CV
       run: |
-        quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf --no-watch-inputs --no-browse
+        quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
 
     - name: Upload PDF
       uses: actions/upload-artifact@v2
