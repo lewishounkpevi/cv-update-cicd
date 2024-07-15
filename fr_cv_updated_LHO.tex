@@ -100,7 +100,7 @@
 \usepackage{sectsty}
 \usepackage{fontspec}
 \usepackage{titlesec}
-\usepackage{atbegshi} % Add this package
+\usepackage{atbegshi}
 
 %% Set page size with a wider right margin
 \geometry{a4paper, total={170mm,257mm}, left=10mm, top=10mm, bottom=5mm, right=10mm}
@@ -109,6 +109,7 @@
 \definecolor{light}{HTML}{E6E6FA}
 \definecolor{highlight}{HTML}{800080}
 \definecolor{dark}{HTML}{f44336}
+\definecolor{customblue}{HTML}{77B5FE} % Add this color
 
 %% Let's add the border on the right hand side 
 \AddToShipoutPictureBG*{% 
@@ -138,12 +139,12 @@
 
 \setlength{\footskip}{20pt}
 
-%% style the chapter/section fonts
+%% Style the chapter/section fonts
 \chapterfont{\color{dark}\fontsize{20}{16.8}\selectfont}
-\sectionfont{\color{blue}\fontsize{20}{10}\selectfont}
+\sectionfont{\color{customblue}\fontsize{20}{10}\selectfont}
 \subsectionfont{\color{red}\fontsize{8}{10}\selectfont}
 \titleformat{\subsection}
-  {\color{blue}\sffamily\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.8pt]}]
+  {\color{customblue}\sffamily\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.8pt]}]
 \titlespacing*{\subsection}{0pt}{*0}{*0}
 
 %% Reduce space before and after section titles
@@ -230,7 +231,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, sharp corners, enhanced, colback={codebgcolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={codebgcolor}, breakable, sharp corners, boxrule=0pt, frame hidden, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 
 \ifLuaTeX
