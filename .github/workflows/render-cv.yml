@@ -40,7 +40,7 @@ jobs:
       run: |
         quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
 
-   - name: Upload PDF
+    - name: Upload PDF
       uses: actions/upload-artifact@v2
       with:
         name: cv-pdf
