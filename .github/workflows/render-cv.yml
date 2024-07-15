@@ -40,15 +40,8 @@ jobs:
       run: |
         quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
 
-    - name: Upload PDF
+   - name: Upload PDF
       uses: actions/upload-artifact@v2
       with:
         name: cv-pdf
         path: cv.pdf
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.CV_TOKEN }}
-        publish_dir: ./_site
