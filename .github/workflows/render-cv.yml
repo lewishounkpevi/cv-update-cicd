@@ -35,13 +35,18 @@ jobs:
       run: |
         R -e "install.packages('quarto')"
         R -e "install.packages('rmarkdown')"
-
+        
     - name: Render CV
       run: |
         quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
+        ls -alh  # List files to check if cv.pdf is present
+
+    - name: Verify PDF
+      run: |
+        if [ ! -f "fr_cv_updated_LHO.pdf" ]; then echo "fr_cv_updated_LHO.pdf not found"; exit 1; fi
 
     - name: Upload PDF
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cv-pdf
         path: fr_cv_updated_LHO.pdf
