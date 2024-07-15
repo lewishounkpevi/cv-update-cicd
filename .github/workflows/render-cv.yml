@@ -59,7 +59,7 @@ jobs:
         path: fr_cv_updated_LHO.pdf
         
     - name: Send Email with Blastula
-      env:
+    - env:
         SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
         SMTP_PORT: ${{ secrets.SMTP_PORT }}
         SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
@@ -76,7 +76,7 @@ jobs:
        creds <- creds_envvar(
             user = 'SMTP_USERNAME',
             pass = 'SMTP_PASSWORD',
-            host = 'SMTP_HOST',
+            host = 'SMTP_SERVER',
             port = 'SMTP_PORT',
             use_ssl = TRUE
           )
