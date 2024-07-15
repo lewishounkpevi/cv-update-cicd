@@ -72,16 +72,17 @@ jobs:
             body = md('Please find attached the latest version of my CV.')
           )
           email <- add_attachment(email, file = 'fr_cv_updated_LHO.pdf')
-          creds <- creds_envvar(
-            user = 'SMTP_USER',
-            pass = 'SMTP_PASS',
+          
+       creds <- creds_envvar(
+            user = 'SMTP_USERNAME',
+            pass = 'SMTP_PASSWORD',
             host = 'SMTP_HOST',
             port = 'SMTP_PORT',
             use_ssl = TRUE
           )
           smtp_send(
             email = email,
-            from = Sys.getenv('SMTP_USER'),
+            from = Sys.getenv('SMTP_USERNAME'),
             to = Sys.getenv('RECIPIENT_EMAIL'),
             subject = 'CV Update',
             credentials = creds
