@@ -44,6 +44,9 @@ jobs:
         R -e "install.packages('blastula')"
         
     - name: Render CV
+      env:
+        VILLE: ${{ secrets.VILLE }}
+        TEL: ${{ secrets.TEL }}
       run: |
         quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
         ls -alh  # List files to check if cv.pdf is present
