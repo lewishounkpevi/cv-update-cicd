@@ -10,7 +10,7 @@ format:
 Sys.Date()
 ```
 
-# Lewis Hounkpevi \| Senior Data Scientist \| AI/ML Engineer
+# Lewis Hounkpevi \| Senior Data Scientist \| IA/ML Engineer
 
 \begin{center}Forte expertise en IA/ML, Python, R, AWS Cloud\end{center}
 
@@ -27,8 +27,8 @@ Sys.Date()
 
 -   **Environnement Technique :** Expert en R et Python, SQL, Git, Tensorflow, Keras, AWS Sagemaker, S3, Docker
 -   **IA/Machine Learning et MLOps:**
-    -   DL, NLP, LLM, RAG, Détection d'objets
-    -   Pipeline : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan
+    -   IA : LLM, RAG, DL, NLP, Détection d'objets
+    -   ML : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan
     -   Mise en production et Monitoring : MLflow, FastApi, Flask, CI/CD, AWS CodeBuild
 -   **Analyse de données :** Détection de fraudes, modélisation et scoring, segmentation, risques ou d’appétence
 -   **Soft skills :** Mise en place de la stratégie Data, Leadership, Communication, Pédagogie
@@ -46,6 +46,7 @@ Ma mission est de conduire toutes les études et analyses relatives au churn et 
 -   Mise en production et monitoring de 5 modèles de prédiction sous Python et AWS SageMaker, S3 et Redshift
 -   Segmentations et profilages du portefeuille client ayant conduit à la mise en place de plans d'actions de rétention et de fidélisation des clients
 -   Amélioration de l’efficacité de l’équipe de 20% en automatisant les processus d’analyse.
+-   Expérimentation de LLMs et application avec 2 RAG mis en place
 
 *Sept 2019 – Juin 2022* : **Senior Data Scientist à la Direction des Etudes et Analyses – Unédic – Paris**
 
@@ -69,7 +70,7 @@ Mission principale : Responsable de l'analyse statistique, modélisation et suiv
 *Mai 2014 – Jan 2018* : **Responsable technique Data Scientist - Consulting pour Renault (Altran, Ligeron) – Paris**
 
 -   4 ans d’expérience en data science, avec une expertise en ML, utilisant R, Python et SQL, Git.
--   Compétences en automatisation de rapports d'analyse et en visualisation de données avec un souci de clarté, pédagogie et précision dans l'analyse de données.
+-  Automatisation de rapports d'analyses et de Data visualisation de données.
 
 ## Formation
 
