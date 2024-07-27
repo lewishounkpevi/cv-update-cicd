@@ -12,7 +12,7 @@ Sys.Date()
 
 # Lewis Hounkpevi \| Senior Data Scientist \| AI/ML Engineer
 
-\begin{center}Forte expertise en AI/ML, Python, R, AWS Cloud\end{center}
+\begin{center}Forte expertise en IA/ML, Python, R, AWS Cloud\end{center}
 
 **Ville :**  `r Sys.getenv("VILLE")` \| **Tél :** `r Sys.getenv("TEL")` \| **Email :** [dumesnil.hounkpevi\@gmail.com](mailto:dumesnil.hounkpevi@gmail.com) \
 **LinkedIn :** <https://www.linkedin.com/in/lewishounkpevi> \| **Github :** <https://github.com/lewishounkpevi>
@@ -25,11 +25,12 @@ Sys.Date()
 
 ## Compétences
 
--   **Environnement Technique :** Expert en R et Python, SQL, Git, Gitlab, AWS Sagemaker, S3, Redshift, Docker, PowerBI
--   **Machine Learning et MLOps:**
-    -   Pipeline : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan, Deep Learning
-    -   Mise en production et Monitoring : MLflow, FastApi, Flask, CI/CD, AWS SageMaker, AWS CodeBuild
--   **Analyse de données :** Détection anomalies, modélisation et scoring, segmentation, évaluation de risques ou d’appétence
+-   **Environnement Technique :** Expert en R et Python, SQL, Git, Tensorflow, Keras, AWS Sagemaker, S3, Docker
+-   **IA/Machine Learning et MLOps:**
+    -   DL, NLP, LLM, RAG, Détection d'objets
+    -   Pipeline : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan
+    -   Mise en production et Monitoring : MLflow, FastApi, Flask, CI/CD, AWS CodeBuild
+-   **Analyse de données :** Détection de fraudes, modélisation et scoring, segmentation, risques ou d’appétence
 -   **Soft skills :** Mise en place de la stratégie Data, Leadership, Communication, Pédagogie
 -   **Langues :** Anglais : Courant
 
