@@ -10,7 +10,7 @@ format:
 Sys.Date()
 ```
 
-# Lewis Hounkpevi \| Senior Data Scientist \| IA/ML Engineer
+# Lewis Hounkpevi \| Head of Datascience
 
 \begin{center}Forte expertise en IA/ML, Python, R, AWS Cloud\end{center}
 
