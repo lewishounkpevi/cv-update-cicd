@@ -2,100 +2,65 @@ name: Render CV
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: "Envoyer le CV par email"
+        type: boolean
+        default: false
+
+env:
+  PDF: build/CV-Lewis-Hounkpevi.pdf
 
 jobs:
-  build:
+  render:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Set up R
-      uses: r-lib/actions/setup-r@v2
-      with:
-        r-version: '4.1.0'
-        
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libcurl4-openssl-dev libssl-dev
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
 
-    - name: Install Quarto
-      run: |
-        wget -O quarto-linux-amd64.deb https://quarto.org/download/latest/quarto-linux-amd64.deb
-        sudo dpkg -i quarto-linux-amd64.deb
-        
-    - name: Install TinyTeX
-      run: |
-        Rscript -e "install.packages('tinytex')"
-        Rscript -e "tinytex::install_tinytex()"
+      - name: Install dependencies
+        run: uv sync --locked
 
-    - name: Install R dependencies
-      run: |
-        R -e "install.packages(c('curl', 'httr'))"
-        R -e "install.packages('quarto')"
-        R -e "install.packages('rmarkdown')"
-        R -e "install.packages('blastula')"
-        
-    - name: Render CV
-      env:
-        VILLE: ${{ secrets.VILLE }}
-        TEL: ${{ secrets.TEL }}
-      run: |
-        quarto render fr_cv_updated_LHO.qmd --to PrettyPDF-pdf
-        ls -alh  # List files to check if cv.pdf is present
+      - name: Lint
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
 
-    - name: Verify PDF
-      run: |
-        if [ ! -f "fr_cv_updated_LHO.pdf" ]; then echo "fr_cv_updated_LHO.pdf not found"; exit 1; fi
-        
-    - name: Send Email
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: ${{ secrets.SMTP_SERVER }}
-        server_port: ${{ secrets.SMTP_PORT }}
-        username: ${{ secrets.SMTP_USERNAME }}
-        password: ${{ secrets.SMTP_PASSWORD }}
-        subject: "CV Update"
-        body: "Please find attached the latest version of my CV."
-        to: ${{ secrets.RECIPIENT_EMAIL }}
-        from: ${{ secrets.SMTP_USERNAME }}
-        attachments: fr_cv_updated_LHO.pdf
-        
-    - name: Send Email with Blastula
-      env:
-        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-        SMTP_PORT: ${{ secrets.SMTP_PORT }}
-        SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-      run: |
-        Rscript -e "
-          library(blastula)
-          email <- compose_email(
-            body = md('Please find attached the latest version of my CV.')
-          )
-          email <- add_attachment(email, file = 'fr_cv_updated_LHO.pdf')
-          
-          creds <- creds_envvar(
-            user = Sys.getenv('SMTP_USERNAME'),
-            pass = 'SMTP_PASSWORD',
-            host = Sys.getenv('SMTP_SERVER'),
-            port = Sys.getenv('SMTP_PORT'),
-            use_ssl = TRUE
-            )
-            
-            smtp_send(
-            email = email,
-            from = Sys.getenv('SMTP_USERNAME'),
-            to = Sys.getenv('RECIPIENT_EMAIL'),
-            subject = 'CV Update',
-            credentials = creds
-            )
-        "
+      - name: Tests
+        run: uv run pytest
+
+      - name: Render CV
+        env:
+          VILLE: ${{ secrets.VILLE }}
+          TEL: ${{ secrets.TEL }}
+        # --strict-env fait échouer le build si un secret manque, plutôt que de publier
+        # un CV avec la ville ou le téléphone vides.
+        run: uv run autocv build --strict-env --output "$PDF"
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: ${{ env.PDF }}
+          if-no-files-found: error
+
+      # Un seul envoi, jamais depuis une pull request.
+      - name: Send CV by email
+        if: >-
+          github.event_name == 'push' ||
+          (github.event_name == 'workflow_dispatch' && inputs.send_email)
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: uv run autocv send --pdf "$PDF"
