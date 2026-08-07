@@ -1,0 +1,119 @@
+// Template Typst du CV. Rendu par autocv à partir de data/cv.yaml.
+// Les valeurs sont injectées en littéraux de chaîne (filtre `tq`) : aucun échappement de
+// balisage n'est nécessaire côté YAML.
+//
+// Portage du style de l'extension Quarto PrettyPDF (Nicola Rennie) :
+// bandeau lavande à droite, titres accentués soulignés, liens violets, police Ubuntu.
+
+#let accent = rgb("#{{ theme.accent }}")
+#let light = rgb("#{{ theme.light }}")
+#let highlight = rgb("#{{ theme.highlight }}")
+
+#set document(title: {{ heading|tq }}, author: {{ cv.name|tq }})
+
+#set page(
+  paper: "a4",
+  margin: (
+    left: {{ theme.margin_x }},
+    // Le bandeau est décoratif : la marge droite l'absorbe pour que le texte ne passe pas
+    // dessous. Typst se charge de l'arithmétique des unités.
+    right: {{ theme.margin_x }}{% if sidebar %} + {{ theme.sidebar_width }}{% endif %},
+    top: {{ theme.margin_top }},
+    bottom: {{ theme.margin_bottom }},
+  ),
+  numbering: "1",
+  number-align: right,
+{% if sidebar %}
+  background: place(top + right, rect(width: {{ theme.sidebar_width }}, height: 100%, fill: light)),
+{% endif %}
+)
+
+#set text(font: {{ theme.font|tq }}, size: {{ theme.font_size }}, lang: "fr")
+#set par(leading: 0.62em, spacing: 0.8em, justify: false)
+#set list(indent: 0.4em, spacing: 0.55em, marker: ([•], [–]))
+#show link: set text(fill: highlight)
+
+#let sep = text(fill: luma(45%))[ | ]
+
+#let section(title) = block(
+  width: 100%,
+  above: 1.1em,
+  below: 0.6em,
+  inset: (bottom: 0.18em),
+  stroke: (bottom: 0.8pt + accent),
+  text(size: 13.5pt, fill: accent, weight: "bold", title),
+)
+
+#let skill(label, body) = {
+  if type(body) == str {
+    [#strong(label + " : ")#body]
+  } else {
+    [#strong(label + " :")
+     #list(..body)]
+  }
+}
+
+{% if theme.logo %}
+#place(top + right, image({{ logo_file|tq }}, width: {{ theme.logo_width }}))
+{% endif %}
+
+#text(size: 19pt, fill: accent, weight: "bold", {{ heading|tq }})
+
+{% if cv.tagline %}
+#align(center, {{ cv.tagline|tq }})
+{% endif %}
+
+{% for line in contact_lines %}
+#block(above: 0.45em, below: 0.1em)[
+{% for part in line %}
+  #strong({{ part.label|tq }}) {% if part.href %}#link({{ part.href|tq }}, {{ part.value|tq }}){% else %}#{{ part.value|tq }}{% endif %}{% if not loop.last %}#sep{% endif %}
+
+{% endfor %}
+]
+{% endfor %}
+
+{% if cv.skills %}
+#section({{ labels.skills|tq }})
+
+#list(
+{% for item in cv.skills %}
+{% if item.text %}
+  skill({{ item.label|tq }}, {{ item.text|tq }}),
+{% else %}
+  skill({{ item.label|tq }}, ({% for sub in item.items %}{{ sub|tq }}, {% endfor %})),
+{% endif %}
+{% endfor %}
+)
+{% endif %}
+
+{% if jobs %}
+#section({{ labels.experience|tq }})
+
+{% for job in jobs %}
+#block(above: 0.9em, below: 0.35em)[
+  #emph({{ job.period|tq }}) : #strong({{ job.heading|tq }})
+]
+{% if job.mission %}
+#block(above: 0.4em, below: 0.4em, {{ job.mission|tq }})
+{% endif %}
+{% if job.achievements %}
+#block(above: 0.55em, below: 0.35em, strong({{ labels.achievements|tq }}))
+
+#list(
+{% for achievement in job.achievements %}
+  {{ achievement|tq }},
+{% endfor %}
+)
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if education_lines %}
+#section({{ labels.education|tq }})
+
+#list(
+{% for entry in education_lines %}
+  [#strong({{ entry.degree|tq }}){% if entry.rest %}#{{ (" - " ~ entry.rest)|tq }}{% endif %}],
+{% endfor %}
+)
+{% endif %}

@@ -1,0 +1,106 @@
+# Contenu du CV. Seul fichier à éditer pour une mise à jour de contenu.
+# Les `${VAR}` sont résolus depuis l'environnement au chargement (secrets GitHub en CI).
+# Le texte est injecté tel quel dans le PDF : pas de markdown, pas d'échappement à prévoir.
+
+name: Lewis Hounkpevi
+title: Head of Datascience
+tagline: Forte expertise en IA/ML, Python, R, AWS Cloud
+
+contact:
+  city: ${VILLE}
+  phone: ${TEL}
+  email: dumesnil.hounkpevi@gmail.com
+  linkedin: https://www.linkedin.com/in/lewishounkpevi
+  github: https://github.com/lewishounkpevi
+
+skills:
+  - label: "Environnement Technique"
+    text: Expert en R et Python, SQL, Git, Tensorflow, Keras, AWS Sagemaker, S3, Docker
+  - label: "IA/Machine Learning et MLOps"
+    items:
+      - "IA : LLM, RAG, DL, NLP, Détection d'objets"
+      - "ML : Xgboost, GBM, Random Forest, KMeans, CAH, Dbscan"
+      - "Mise en production et Monitoring : MLflow, FastApi, Flask, CI/CD, AWS CodeBuild"
+  - label: "Analyse de données"
+    text: Détection de fraudes, modélisation et scoring, segmentation, risques ou d'appétence
+  - label: "Soft skills"
+    text: Mise en place de la stratégie Data, Leadership, Communication, Pédagogie
+  - label: "Langues"
+    text: "Anglais : Courant"
+
+experience:
+  - period: Juil 2022 – En cours
+    role: Senior Data Scientist
+    company: Santevet
+    location: Full remote
+    mission: >-
+      Ma mission est de conduire toutes les études et analyses relatives au churn et d'aider
+      les différents corps de métier (Actuariat, Finance, Marketing et Commerce) dans leur
+      contribution à réduire le churn tout en étant Lead technique d'une équipe de
+      3 collaborateurs.
+    achievements:
+      - Réduction du churn de 10% en utilisant des modèles de scoring.
+      - >-
+        Mise en production et monitoring de 5 modèles de prédiction sous Python et
+        AWS SageMaker, S3 et Redshift
+      - >-
+        Segmentations et profilages du portefeuille client ayant conduit à la mise en place
+        de plans d'actions de rétention et de fidélisation des clients
+      - Amélioration de l'efficacité de l'équipe de 20% en automatisant les processus d'analyse.
+      - Expérimentation de LLMs et application avec 2 RAG mis en place
+
+  - period: Sept 2019 – Juin 2022
+    role: Senior Data Scientist à la Direction des Etudes et Analyses
+    company: Unédic
+    location: Paris
+    mission: >-
+      Mission principale : Accompagnement technique et montée en compétence de l'équipe de
+      l'Unédic sur les nouveaux outils d'analyse de données, en apportant mon expertise dans
+      les études et travaux d'analyse.
+    achievements:
+      - Publication de 5 articles techniques sur l'analyse des demandeurs d'emploi.
+      - Formation de plus de 10 collaborateurs sur les outils modernes de data science R, Python, Spark et Git.
+
+  - period: Fév 2018 – Août 2019
+    role: Lead Data Scientist à la Direction Marketing
+    company: Eni Gas & Power
+    location: Levallois
+    mission: >-
+      Mission principale : Responsable de l'analyse statistique, modélisation et suivi des KPI
+      pour les segments B2C et B2B
+    achievements:
+      - >-
+        Mise en production de scores de churn, de cross-sell et d'appétence aux services pour
+        les offres, contribuant à réduire le churn de 10% et augmenter le cross-sell de 15%.
+      - Détection des différents profils des clients en portefeuille.
+      - Développement de 3 packages R augmentant la productivité de 25%.
+
+  - period: Mai 2014 – Jan 2018
+    role: Responsable technique Data Scientist - Consulting pour Renault (Altran, Ligeron)
+    company: ""
+    location: Paris
+    achievements:
+      - 4 ans d'expérience en data science, avec une expertise en ML, utilisant R, Python et SQL, Git.
+      - Automatisation de rapports d'analyses et de Data visualisation de données.
+
+education:
+  - degree: Specialization in Building Cloud Computing Solutions at Scale
+    institution: Duke University
+    location: USA (Coursera)
+    year: "2024"
+  - degree: Master 2 en Ingénierie Statistique
+    institution: Université de Cergy-Pontoise
+    location: France
+    year: "2014"
+
+# Titres de sections et libellés, pour pouvoir décliner le CV en anglais sans toucher au template.
+labels:
+  skills: Compétences
+  experience: Expérience Professionnelle
+  education: Formation
+  achievements: "Réalisations Clés :"
+  city: "Ville :"
+  phone: "Tél :"
+  email: "Email :"
+  linkedin: "LinkedIn :"
+  github: "Github :"
