@@ -3,7 +3,7 @@
 # Le texte est injecté tel quel dans le PDF : pas de markdown, pas d'échappement à prévoir.
 
 name: Lewis Hounkpevi
-title: Head of Datascience
+title: Data Science Manager
 tagline: Forte expertise en IA/ML, Python, R, AWS Cloud
 
 contact:
@@ -29,59 +29,84 @@ skills:
     text: "Anglais : Courant"
 
 experience:
-  - period: Juil 2022 – En cours
+  - period: Déc 2024 – En cours
+    role: Data Science Manager
+    company: EDF
+    location: Paris
+    mission: >-
+      Coordination fonctionnelle de la roadmap Data et animation technique, de la conception
+      à la mise en production.
+    achievements:
+      - >-
+        Conception de services smart à partir des données IoT (consommation, consignes de
+        chauffe, températures, qualité de l'air) : analyse de consommation, prévision
+        budgétaire, pilotage du chauffage, détection d'absence.
+      - >-
+        Intégration de briques d'IA générative (LLM, RAG) pour enrichir l'exploitation des
+        données et les services clients.
+      - Évaluation et intégration d'algorithmes issus de la R&D du Groupe EDF.
+      - >-
+        Structuration de l'architecture Data Cloud (data lake, outillage, bonnes pratiques) et
+        des indicateurs de pilotage de l'activité (BI interne).
+
+  # Activité menée en parallèle des postes salariés, remontée ici pour sa visibilité.
+  - period: Jan 2018 – En cours
+    role: Enseignant Formateur Data Science, IA & Cloud
+    company: Freelance
+    location: Paris
+    mission: >-
+      Conception et animation de formations sur mesure, du niveau débutant à avancé :
+      Python et R, statistique et datamining, machine learning, deep learning et IA
+      générative (LLM, RAG), MLOps et Cloud AWS. Ateliers pratiques, accompagnement
+      individuel et formations en entreprise.
+
+  - period: Juil 2022 – Nov 2025
     role: Senior Data Scientist
     company: Santevet
     location: Full remote
     mission: >-
-      Ma mission est de conduire toutes les études et analyses relatives au churn et d'aider
-      les différents corps de métier (Actuariat, Finance, Marketing et Commerce) dans leur
-      contribution à réduire le churn tout en étant Lead technique d'une équipe de
-      3 collaborateurs.
+      Études et analyses relatives au churn pour l'ensemble des métiers (Actuariat, Finance,
+      Marketing, Commerce), en tant que Lead technique d'une équipe de 3 collaborateurs.
     achievements:
-      - Réduction du churn de 10% en utilisant des modèles de scoring.
       - >-
-        Mise en production et monitoring de 5 modèles de prédiction sous Python et
-        AWS SageMaker, S3 et Redshift
+        Réduction du churn de 10% via 5 modèles de scoring mis en production et monitorés
+        sous Python, AWS SageMaker, S3 et Redshift.
       - >-
-        Segmentations et profilages du portefeuille client ayant conduit à la mise en place
-        de plans d'actions de rétention et de fidélisation des clients
-      - Amélioration de l'efficacité de l'équipe de 20% en automatisant les processus d'analyse.
-      - Expérimentation de LLMs et application avec 2 RAG mis en place
+        Segmentations et profilages du portefeuille client ayant nourri les plans de rétention
+        et de fidélisation.
+      - Expérimentation de LLMs et mise en place de 2 RAG.
 
   - period: Sept 2019 – Juin 2022
     role: Senior Data Scientist à la Direction des Etudes et Analyses
     company: Unédic
     location: Paris
     mission: >-
-      Mission principale : Accompagnement technique et montée en compétence de l'équipe de
-      l'Unédic sur les nouveaux outils d'analyse de données, en apportant mon expertise dans
-      les études et travaux d'analyse.
+      Accompagnement technique et montée en compétence de l'équipe sur les outils modernes
+      d'analyse de données.
     achievements:
       - Publication de 5 articles techniques sur l'analyse des demandeurs d'emploi.
-      - Formation de plus de 10 collaborateurs sur les outils modernes de data science R, Python, Spark et Git.
+      - Formation de plus de 10 collaborateurs à R, Python, Spark et Git.
 
   - period: Fév 2018 – Août 2019
     role: Lead Data Scientist à la Direction Marketing
     company: Eni Gas & Power
     location: Levallois
-    mission: >-
-      Mission principale : Responsable de l'analyse statistique, modélisation et suivi des KPI
-      pour les segments B2C et B2B
+    mission: Analyse statistique, modélisation et suivi des KPI pour les segments B2C et B2B.
     achievements:
       - >-
-        Mise en production de scores de churn, de cross-sell et d'appétence aux services pour
-        les offres, contribuant à réduire le churn de 10% et augmenter le cross-sell de 15%.
-      - Détection des différents profils des clients en portefeuille.
-      - Développement de 3 packages R augmentant la productivité de 25%.
+        Mise en production de scores de churn, de cross-sell et d'appétence : churn réduit
+        de 10%, cross-sell augmenté de 15%.
+      - >-
+        Segmentation du portefeuille client et développement de 3 packages R
+        (+25% de productivité).
 
   - period: Mai 2014 – Jan 2018
     role: Responsable technique Data Scientist - Consulting pour Renault (Altran, Ligeron)
     company: ""
     location: Paris
-    achievements:
-      - 4 ans d'expérience en data science, avec une expertise en ML, utilisant R, Python et SQL, Git.
-      - Automatisation de rapports d'analyses et de Data visualisation de données.
+    mission: >-
+      4 ans en data science : modélisation ML sous R, Python et SQL, automatisation de
+      rapports d'analyse et de data visualisation.
 
 education:
   - degree: Specialization in Building Cloud Computing Solutions at Scale
@@ -98,9 +123,20 @@ labels:
   skills: Compétences
   experience: Expérience Professionnelle
   education: Formation
-  achievements: "Réalisations Clés :"
+  # Vide = pas d'intertitre au-dessus des puces. Répété à chaque poste, il alourdissait la
+  # page pour rien : les puces se distinguent déjà de la ligne de mission.
+  achievements: ""
   city: "Ville :"
   phone: "Tél :"
   email: "Email :"
   linkedin: "LinkedIn :"
   github: "Github :"
+
+# Mise en forme. Voir src/autocv/models.py (classe Theme) pour la liste complète des réglages.
+theme:
+  # Calé pour que le contenu actuel remplisse la page sans déborder : à 10.5pt il passe
+  # à deux pages. En ajoutant du contenu, redescendre ici plutôt que de laisser filer.
+  # Le test test_le_cv_tient_sur_une_page garde le garde-fou.
+  font_size: 10.45pt
+  # Bandeau lavande à droite, hérité de PrettyPDF. 30mm pour le rétablir.
+  sidebar_width: 0mm

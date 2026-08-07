@@ -1,6 +1,6 @@
 from pypdf import PdfReader
 
-from autocv.models import CV
+from autocv.models import CV, load_cv
 from autocv.render import build_context, build_pdf, render_typst, typst_quote
 
 
@@ -49,6 +49,15 @@ def test_render_typst_injecte_le_contenu(minimal_cv):
     assert 'link("mailto:ada@example.org"' in source
 
 
+def test_intertitre_des_realisations_optionnel(minimal_cv):
+    assert "Réalisations Clés :" in render_typst(minimal_cv)
+
+    minimal_cv.labels["achievements"] = ""
+    source = render_typst(minimal_cv)
+    assert "Réalisations Clés :" not in source
+    assert '"Premier algorithme publié."' in source  # les puces restent
+
+
 def test_render_typst_sans_experience_ni_formation():
     cv = CV.model_validate({"name": "Sans rien"})
     source = render_typst(cv)
@@ -66,6 +75,15 @@ def test_build_pdf_produit_un_pdf_lisible(minimal_cv, tmp_path):
     text = reader.pages[0].extract_text()
     assert "Ada Lovelace" in text
     assert "Premier algorithme publié." in text
+
+
+def test_le_cv_tient_sur_une_page(cv_yaml, tmp_path, monkeypatch):
+    # theme.font_size est calé au plus juste : ce test signale tout ajout de contenu qui
+    # ferait basculer le CV sur une seconde page.
+    monkeypatch.setenv("VILLE", "Paris")
+    monkeypatch.setenv("TEL", "+33 6 12 34 56 78")
+    pdf = build_pdf(load_cv(cv_yaml), tmp_path / "cv.pdf")
+    assert len(PdfReader(pdf).pages) == 1
 
 
 def test_build_pdf_survit_aux_caracteres_de_balisage(tmp_path):

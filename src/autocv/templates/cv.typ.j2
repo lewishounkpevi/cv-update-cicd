@@ -29,8 +29,8 @@
 )
 
 #set text(font: {{ theme.font|tq }}, size: {{ theme.font_size }}, lang: "fr")
-#set par(leading: 0.62em, spacing: 0.8em, justify: false)
-#set list(indent: 0.4em, spacing: 0.55em, marker: ([•], [–]))
+#set par(leading: 0.7em, spacing: 0.8em, justify: false)
+#set list(indent: 0.4em, spacing: 0.7em, marker: ([•], [–]))
 #show link: set text(fill: highlight)
 
 #let sep = text(fill: luma(45%))[ | ]
@@ -90,14 +90,16 @@
 #section({{ labels.experience|tq }})
 
 {% for job in jobs %}
-#block(above: 0.9em, below: 0.35em)[
+#block(above: 1.45em, below: 0.45em)[
   #emph({{ job.period|tq }}) : #strong({{ job.heading|tq }})
 ]
 {% if job.mission %}
-#block(above: 0.4em, below: 0.4em, {{ job.mission|tq }})
+#block(above: 0.45em, below: 0.45em, {{ job.mission|tq }})
 {% endif %}
 {% if job.achievements %}
+{% if labels.achievements %}
 #block(above: 0.55em, below: 0.35em, strong({{ labels.achievements|tq }}))
+{% endif %}
 
 #list(
 {% for achievement in job.achievements %}
