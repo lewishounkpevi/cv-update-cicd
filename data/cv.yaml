@@ -138,5 +138,8 @@ theme:
   # à deux pages. En ajoutant du contenu, redescendre ici plutôt que de laisser filer.
   # Le test test_le_cv_tient_sur_une_page garde le garde-fou.
   font_size: 10.45pt
+  # 19pt faisait passer l'en-tête sur deux lignes dès qu'un intitulé dépassait ~25 caractères,
+  # ce qui suffisait à faire déborder le CV. À 17pt tous les intitulés testés tiennent.
+  heading_size: 17pt
   # Bandeau lavande à droite, hérité de PrettyPDF. 30mm pour le rétablir.
   sidebar_width: 0mm

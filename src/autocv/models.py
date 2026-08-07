@@ -70,6 +70,9 @@ class Theme(_Base):
     highlight: str = "800080"
     font: str = "Ubuntu"
     font_size: str = "10pt"
+    # Corps de la ligne de titre. Le baisser évite qu'un intitulé de poste long ne passe
+    # sur deux lignes et ne fasse déborder le CV.
+    heading_size: str = "19pt"
     # Bandeau lavande sur le bord droit. L'ancien PrettyPDF.tex le laissait à 0cm ;
     # passer à 30mm pour retrouver le bandeau d'origine de l'extension.
     sidebar_width: str = "0mm"

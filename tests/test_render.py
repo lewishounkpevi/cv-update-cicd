@@ -1,3 +1,4 @@
+import pytest
 from pypdf import PdfReader
 
 from autocv.models import CV, load_cv
@@ -77,12 +78,25 @@ def test_build_pdf_produit_un_pdf_lisible(minimal_cv, tmp_path):
     assert "Premier algorithme publié." in text
 
 
-def test_le_cv_tient_sur_une_page(cv_yaml, tmp_path, monkeypatch):
+@pytest.mark.parametrize(
+    "titre",
+    [
+        "Data Science Manager",
+        "Head of Data",
+        "Head of Data Science & IA",
+        # Le CV est décliné par offre en changeant ce seul champ : un intitulé long ne doit
+        # pas faire basculer la page. C'est ce que garantit theme.heading_size.
+        "Head of Data Science et Intelligence Artificielle",
+    ],
+)
+def test_le_cv_tient_sur_une_page(cv_yaml, titre, tmp_path, monkeypatch):
     # theme.font_size est calé au plus juste : ce test signale tout ajout de contenu qui
     # ferait basculer le CV sur une seconde page.
     monkeypatch.setenv("VILLE", "Paris")
     monkeypatch.setenv("TEL", "+33 6 12 34 56 78")
-    pdf = build_pdf(load_cv(cv_yaml), tmp_path / "cv.pdf")
+    cv = load_cv(cv_yaml)
+    cv.title = titre
+    pdf = build_pdf(cv, tmp_path / "cv.pdf")
     assert len(PdfReader(pdf).pages) == 1
 
 

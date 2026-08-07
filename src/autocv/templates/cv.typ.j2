@@ -57,7 +57,7 @@
 #place(top + right, image({{ logo_file|tq }}, width: {{ theme.logo_width }}))
 {% endif %}
 
-#text(size: 19pt, fill: accent, weight: "bold", {{ heading|tq }})
+#text(size: {{ theme.heading_size }}, fill: accent, weight: "bold", {{ heading|tq }})
 
 {% if cv.tagline %}
 #align(center, {{ cv.tagline|tq }})
